@@ -1,7 +1,7 @@
 vowels = 'aeiou'
 
 File.open('enable1.txt').each(sep="\n") do |line|
-    if line[/[^eEiIoOuU][aA][^aA]*[eE][^aAeE]*[iI][^aAeEiI]*[oO][^aAeEiIoO]*[uU][^aAeEiIoOuU]*/] != nil
+    if line[/^[^eiouy]*[a][^aeiouy]*[e][^aeiouy]*[i][^aeiouy]*[o][^aeiouy]*[u][^aeiouy]*[y][^aeiouy]*$/] != nil
         puts line
     end
 end
