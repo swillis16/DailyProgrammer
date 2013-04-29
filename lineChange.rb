@@ -1,11 +1,25 @@
 if ARGV[0] == nil || ARGV[1] == nil
     puts 'Usage: ruby lineChange.rb FILEPATH ("Windows" | "Unix")'
+    exit
 end
 
-#TODO: REplace each occurrence of one newline character with the other on each line.
+newlineChar = ""
+returnString = ""
 
-File.open('enable1.txt').each(sep="\n") do |line|
-#    if line[/(?i)^[^eiouy]*[a][^aeiouy]*[e][^aeiouy]*[i][^aeiouy]*[o][^aeiouy]*[u][^aeiouy]*[y][^aeiouy]*$/] != nil
-#        puts line
-#    end
+#TODO: Replace each occurrence of one newline character with the other on each line.
+
+if ARGV[1] == "Windows"
+    newlineChar = "\r\n"
+
+    File.foreach(ARGV[0]) do |line|
+        returnString = returnString + line.gsub("\n", newlineChar)
+    end
+else 
+    newlineChar = "\n"
+
+    File.foreach(ARGV[0]) do |line|
+        line.gsub("\r\n`", newlineChar)
+    end
 end
+
+puts returnString
