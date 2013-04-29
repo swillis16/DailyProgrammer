@@ -8,7 +8,7 @@ returnString = ""
 
 #TODO: Replace each occurrence of one newline character with the other on each line.
 
-if ARGV[1] == "Windows"
+if ARGV[1].downcase == "windows"
     newlineChar = "\r\n"
 
     File.foreach(ARGV[0]) do |line|
